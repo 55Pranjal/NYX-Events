@@ -15,7 +15,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // your Vite frontend
+    origin: "https://nyxevents.netlify.app/", // your Vite frontend
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
@@ -91,6 +91,7 @@ app.get("/api/protected", (req, res) => {
 app.use("/api/users", userRoutes);
 app.use("/api/events", EventRoutes);
 app.use("/api/registers", RegisterRoute);
+app.options("*", cors());
 
 mongoose
   .connect(process.env.MONGO_URI)
