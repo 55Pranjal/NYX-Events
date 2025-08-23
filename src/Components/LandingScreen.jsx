@@ -14,7 +14,6 @@ const LandingScreen = () => {
         <div style={{ width: "100%", height: "600px", position: "relative" }}>
           <DarkVeil />
           <MainSection />
-          <Footer />
         </div>
       </div>
     </>

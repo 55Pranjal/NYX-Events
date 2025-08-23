@@ -1,9 +1,33 @@
 import React from "react";
 import TiltedCard from "./TitledCard";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const MainSection = () => {
   const navigate = useNavigate();
+
+  const [events, setEvents] = useState({
+    title: "",
+    date: "",
+    time: "",
+    location: "",
+    description: "",
+    guest: "",
+    registrationStatus: "",
+    mapEmbedUrl: "",
+    agenda: "",
+    rules: "",
+    faqs: "",
+  });
+
+  useEffect(() => {
+    // Fetch events from backend
+    fetch("http://localhost:5000/api/events") // your backend endpoint
+      .then((res) => res.json())
+      .then((data) => setEvents(data))
+      .catch((err) => console.error("Error fetching events:", err));
+  }, []);
+
   return (
     <div>
       <p className="text-white text-left font-bold m-10 text-4xl">
@@ -149,6 +173,7 @@ const MainSection = () => {
             </div>
           }
         />
+        <p className="text-white font-2xl bg-red-500">{events.title}</p>
       </div>
     </div>
   );

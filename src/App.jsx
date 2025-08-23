@@ -11,6 +11,11 @@ import Contact from "./Components/Contact";
 import Home from "./pages/Home";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import All from "./Components/All";
+import Music from "./Components/Music";
+import Theatre from "./Components/Theatre";
+import Conferences from "./Components/Conferences";
+import Parties from "./Components/Parties";
 import {
   VscHome,
   VscArchive,
@@ -73,6 +78,11 @@ function App() {
         <Route path="/SummerMusicFestival" element={<SummerMusicFestival />} />
         <Route path="/TechConference" element={<TechConference />} />
         <Route path="/NewYearParty" element={<NewYearParty />} />
+        <Route path="/All" element={<All />} />
+        <Route path="/Music" element={<Music />} />
+        <Route path="/Theatre" element={<Theatre />} />
+        <Route path="/Conferences" element={<Conferences />} />
+        <Route path="/Parties" element={<Parties />} />
         <Route path="/Register" element={<Register />} />
       </Routes>
     </>

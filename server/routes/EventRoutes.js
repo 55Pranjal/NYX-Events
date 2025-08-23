@@ -39,4 +39,14 @@ router.post("/add", async (req, res) => {
   }
 });
 
+router.get("/", async (_req, res) => {
+  try {
+    const events = await Event.find().sort({ createdAt: -1 });
+    res.json(events);
+  } catch (err) {
+    console.error("Error fetching events:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 export default router;

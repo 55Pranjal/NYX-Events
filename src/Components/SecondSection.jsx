@@ -28,20 +28,35 @@ const SecondSection = () => {
         </button>
       </div>
       <div className="flex gap-4 text-white font-bold mt-3">
-        <div className="w-[20%] p-10 rounded-xl bg-gradient-to-r from-gray-600 to-gray-800 category-btn cursor-pointer">
+        <div
+          onClick={() => navigate("/All")}
+          className="w-[20%] p-10 rounded-xl bg-gradient-to-r from-gray-600 to-gray-800 category-btn cursor-pointer"
+        >
           <p className="my-3">All</p>
         </div>
-        <div className="w-[20%] p-10 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 category-btn cursor-pointer">
+        <div
+          onClick={() => navigate("/Music")}
+          className="w-[20%] p-10 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 category-btn cursor-pointer"
+        >
           <p className="my-3">Music</p>
         </div>
-        <div className="w-[20%] p-10 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 category-btn cursor-pointer">
+        <div
+          onClick={() => navigate("/Theatre")}
+          className="w-[20%] p-10 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 category-btn cursor-pointer"
+        >
           <p className="my-3">Theatre</p>
         </div>
-        <div className="w-[20%] p-10 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 category-btn cursor-pointer">
+        <div
+          onClick={() => navigate("/Conferences")}
+          className="w-[20%] p-10 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 category-btn cursor-pointer"
+        >
           <p className="my-3">Conferences</p>
         </div>
 
-        <div className="w-[20%] p-10 rounded-xl bg-gradient-to-r from-orange-500 to-pink-500 category-btn cursor-pointer">
+        <div
+          onClick={() => navigate("/Parties")}
+          className="w-[20%] p-10 rounded-xl bg-gradient-to-r from-orange-500 to-pink-500 category-btn cursor-pointer"
+        >
           <p className="my-3">Parties</p>
         </div>
       </div>
