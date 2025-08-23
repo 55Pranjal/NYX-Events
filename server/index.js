@@ -26,7 +26,7 @@ const JWT_SECRET = "super_secret_key"; // use env in production
 
 // Step 1: Redirect user to GitHub for consent
 app.get("/auth/github", (req, res) => {
-  const redirect_uri = "http://localhost:5000/auth/github/callback";
+  const redirect_uri = "https://nyx-backend.onrender.com/auth/github/callback";
   res.redirect(
     `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${redirect_uri}&scope=user:email`
   );
@@ -67,7 +67,7 @@ app.get("/auth/github/callback", async (req, res) => {
       { expiresIn: "1h" }
     );
     // Redirect back to frontend with token
-    res.redirect(`http://localhost:5173/?token=${ourToken}`);
+    res.redirect(`https://nyxevents.netlify.app/?token=${ourToken}`);
   } catch (e) {
     console.error(e);
     res.status(500).send("GitHub auth failed");
@@ -98,4 +98,5 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
-app.listen(5000, () => console.log("Server running on http://localhost:5000"));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
