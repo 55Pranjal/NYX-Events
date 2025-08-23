@@ -25,14 +25,15 @@ console.log(
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "https://nyxevents.netlify.app", // your Vite frontend
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
 app.use(express.json());
+app.use(
+  // cors({
+  //   origin: "https://nyxevents.netlify.app", // your Vite frontend
+  //   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  //   allowedHeaders: ["Content-Type", "Authorization"],
+  // })
+  cors()
+);
 
 const JWT_SECRET = process.env.JWT_SECRET; // use env in production
 
