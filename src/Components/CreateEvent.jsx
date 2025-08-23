@@ -21,19 +21,22 @@ const CreateEvent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/events/add", {
-        title,
-        date,
-        time,
-        location,
-        description,
-        guest,
-        registrationStatus,
-        mapEmbedUrl,
-        agenda,
-        rules,
-        faqs,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/events/add`,
+        {
+          title,
+          date,
+          time,
+          location,
+          description,
+          guest,
+          registrationStatus,
+          mapEmbedUrl,
+          agenda,
+          rules,
+          faqs,
+        }
+      );
 
       setMessage(res.data.message);
 

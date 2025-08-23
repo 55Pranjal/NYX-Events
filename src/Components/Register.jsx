@@ -15,11 +15,14 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/registers/add", {
-        email,
-        name,
-        event,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/registers/add`,
+        {
+          email,
+          name,
+          event,
+        }
+      );
 
       setMessage(res.data.message);
 

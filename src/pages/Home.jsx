@@ -7,9 +7,12 @@ export default function Home() {
   const [data, setData] = useState(null);
 
   const fetchProtected = async () => {
-    const res = await axios.get("http://localhost:5000/api/protected", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const res = await axios.get(
+      `${import.meta.env.VITE_BACKEND_URL}/api/protected`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
     setData(res.data);
   };
 

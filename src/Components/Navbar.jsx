@@ -18,7 +18,7 @@ const Navbar = () => {
       if (token) {
         try {
           // First validate the token with the backend
-          await axios.get("http://localhost:5000/api/protected", {
+          await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/protected`, {
             headers: { Authorization: `Bearer ${token}` }, // Fixed: Added backticks for template literal
           });
 

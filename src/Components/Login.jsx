@@ -22,17 +22,20 @@ const Login = () => {
   }, [navigate]);
 
   const handleGithubLogin = () => {
-    window.location.href = "http://localhost:5000/auth/github";
+    window.location.href = `${import.meta.env.VITE_BACKEND_URL}/auth/github`;
   };
 
   // Add regular email/password login handler
   const handleRegularLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/users/login", {
-        email: "user@example.com", // You'll need to add form inputs for these
-        password: "password",
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/login`,
+        {
+          email: "user@example.com", // You'll need to add form inputs for these
+          password: "password",
+        }
+      );
 
       if (res.status === 200) {
         localStorage.setItem("token", res.data.token);

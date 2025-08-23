@@ -22,7 +22,7 @@ const MainSection = () => {
 
   useEffect(() => {
     // Fetch events from backend
-    fetch("http://localhost:5000/api/events") // your backend endpoint
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/events`) // your backend endpoint
       .then((res) => res.json())
       .then((data) => setEvents(data))
       .catch((err) => console.error("Error fetching events:", err));

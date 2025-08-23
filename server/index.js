@@ -7,9 +7,21 @@ import mongoose from "mongoose";
 import userRoutes from "./routes/UserRoutes.js";
 import EventRoutes from "./routes/EventRoutes.js";
 import RegisterRoute from "./routes/RegisterRoute.js";
-import { a } from "motion/react-m";
 
 dotenv.config();
+console.log("Environment check:");
+console.log("BACKEND_URL:", process.env.BACKEND_URL);
+console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
+console.log(
+  "GITHUB_CLIENT_ID:",
+  process.env.GITHUB_CLIENT_ID ? "Set" : "Missing"
+);
+console.log("MONGO_URI:", process.env.MONGO_URI ? "Set" : "Missing");
+console.log("Full BACKEND_URL:", process.env.BACKEND_URL);
+console.log(
+  "Redirect URI would be:",
+  `${process.env.BACKEND_URL}/auth/github/callback`
+);
 
 const app = express();
 
@@ -22,11 +34,11 @@ app.use(
 );
 app.use(express.json());
 
-const JWT_SECRET = "super_secret_key"; // use env in production
+const JWT_SECRET = process.env.JWT_SECRET; // use env in production
 
 // Step 1: Redirect user to GitHub for consent
 app.get("/auth/github", (req, res) => {
-  const redirect_uri = "https://nyx-backend.onrender.com/auth/github/callback";
+  const redirect_uri = `${process.env.BACKEND_URL}/auth/github/callback`;
   res.redirect(
     `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${redirect_uri}&scope=user:email`
   );
@@ -67,7 +79,7 @@ app.get("/auth/github/callback", async (req, res) => {
       { expiresIn: "1h" }
     );
     // Redirect back to frontend with token
-    res.redirect(`https://nyxevents.netlify.app/?token=${ourToken}`);
+    res.redirect(`${process.env.FRONTEND_URL}/?token=${ourToken}`);
   } catch (e) {
     console.error(e);
     res.status(500).send("GitHub auth failed");
@@ -87,7 +99,7 @@ app.get("/api/protected", (req, res) => {
     res.status(401).json({ msg: "Invalid/Expired token" });
   }
 });
-
+console.log("About to import routes...");
 app.use("/api/users", userRoutes);
 app.use("/api/events", EventRoutes);
 app.use("/api/registers", RegisterRoute);
