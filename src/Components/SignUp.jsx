@@ -18,7 +18,7 @@ const SignUpScreen = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/users/add`,
+        `${import.meta.env.VITE_API_URL}/api/users/add`,
         {
           name,
           email,

@@ -15,7 +15,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://nyxevents.netlify.app/", // your Vite frontend
+    origin: "https://nyxevents.netlify.app", // your Vite frontend
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
