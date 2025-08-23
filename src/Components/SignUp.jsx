@@ -17,12 +17,15 @@ const SignUpScreen = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/users/add", {
-        name,
-        email,
-        password,
-        phone,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/users/add`,
+        {
+          name,
+          email,
+          password,
+          phone,
+        }
+      );
 
       setMessage(res.data.message);
 
