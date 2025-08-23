@@ -18,7 +18,7 @@ const SignUpScreen = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `https://backend-nyx-9.onrender.com/api/users/add`,
+        `https://backend-nyx-9-m6ff.onrender.com/api/users/add`,
         {
           name,
           email,
