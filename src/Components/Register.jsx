@@ -16,7 +16,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/registers/add`,
+        `https://backend-nyx-9-m6ff.onrender.com/api/registers/add`,
         {
           email,
           name,
