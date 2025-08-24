@@ -255,9 +255,9 @@ export default function SummerMusicFestival() {
                 <span className="h-8 w-8 rounded-xl bg-gray-900 text-white grid place-items-center font-bold">
                   E
                 </span>
-                <span className="font-semibold">EVENTITS</span>
+                <span className="font-semibold">NYX Events</span>
               </div>
-              <p className="mt-3 text-sm text-gray-600">© 2020 EVENTITS</p>
+              <p className="mt-3 text-sm text-gray-600">© 2020 NYX Events</p>
             </div>
             <div>
               <h4 className="font-semibold">Useful Links</h4>
@@ -286,13 +286,13 @@ export default function SummerMusicFestival() {
                   Email:{" "}
                   <a
                     className="hover:underline"
-                    href="mailto:example@ecell.org"
+                    href="mailto:example@nyxevents.org"
                   >
-                    summermusicfestival@gmail.com
+                    nyxevents@gmail.com
                   </a>
                 </li>
                 <li>Phone: +91‑987654321</li>
-                <li>Address: Central Park,NY</li>
+                <li>Address: KP 25 A</li>
               </ul>
             </div>
           </div>
