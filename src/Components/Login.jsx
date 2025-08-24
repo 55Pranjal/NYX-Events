@@ -30,7 +30,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `https://backend-nyx-9-m6ff.onrender.com/api/users/login`,,
+        `https://backend-nyx-9-m6ff.onrender.com/api/users/login`,
         {
           email: "user@example.com", // You'll need to add form inputs for these
           password: "password",
