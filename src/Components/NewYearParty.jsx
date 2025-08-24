@@ -188,7 +188,7 @@ export default function NewYearParty() {
             <div className="mt-4 rounded-2xl border bg-white p-4">
               <div className="flex items-center gap-2 text-sm text-gray-700">
                 <MapPin size={16} />
-                Campus 6, Auditorium
+                Campus 13, Cricket Ground
               </div>
               <div className="mt-4 aspect-video w-full rounded-xl bg-gray-100 grid place-items-center text-sm text-gray-500">
                 <iframe
@@ -248,9 +248,9 @@ export default function NewYearParty() {
                 <span className="h-8 w-8 rounded-xl bg-gray-900 text-white grid place-items-center font-bold">
                   E
                 </span>
-                <span className="font-semibold">EVENTITS</span>
+                <span className="font-semibold">NYX Events</span>
               </div>
-              <p className="mt-3 text-sm text-gray-600">© 2020 EVENTITS</p>
+              <p className="mt-3 text-sm text-gray-600">© 2020 NYX Events</p>
             </div>
             <div>
               <h4 className="font-semibold">Useful Links</h4>
@@ -279,13 +279,13 @@ export default function NewYearParty() {
                   Email:{" "}
                   <a
                     className="hover:underline"
-                    href="mailto:example@ecell.org"
+                    href="mailto:example@nyxevents.org"
                   >
-                    summermusicfestival@gmail.com
+                    nyxevents@gmail.com
                   </a>
                 </li>
                 <li>Phone: +91‑987654321</li>
-                <li>Address: Central Park,NY</li>
+                <li>Address: KP 25 A</li>
               </ul>
             </div>
           </div>
