@@ -22,7 +22,7 @@ const CreateEvent = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/events/add`,
+        `https://backend-nyx-9-m6ff.onrender.com/api/events/add`,
         {
           title,
           date,
