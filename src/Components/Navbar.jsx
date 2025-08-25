@@ -90,6 +90,17 @@ const Navbar = () => {
           {user ? (
             <>
               <p className="mt-3 font-bold">Welcome, {user.name}</p>
+<<<<<<< HEAD
+=======
+              <div onClick={() => navigate("/Dashboard")}>
+                <p
+                  className="text-white px-10 py-2 cursor-pointer font-bold shadow-[0_5px_15px_rgb(238,238,238,0.4)] bg-transparent rounded-lg border border-1 border-white"
+                  style={{ margin: "6px 0 0", opacity: 0.8 }}
+                >
+                  Dashboard
+                </p>
+              </div>
+>>>>>>> local-changes
 
               <div onClick={handleLogout}>
                 <p

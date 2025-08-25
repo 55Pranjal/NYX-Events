@@ -11,6 +11,10 @@ const SignUpScreen = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+<<<<<<< HEAD
+=======
+  const [showPassword, setShowPassword] = useState(false); // toggle state
+>>>>>>> local-changes
 
   const navigate = useNavigate();
 
@@ -19,6 +23,7 @@ const SignUpScreen = () => {
     try {
       const res = await axios.post(
         `https://backend-nyx-9-m6ff.onrender.com/api/users/add`,
+<<<<<<< HEAD
         {
           name,
           email,
@@ -34,6 +39,17 @@ const SignUpScreen = () => {
         localStorage.setItem("token", res.data.token);
         window.dispatchEvent(new Event("authChange"));
         window.dispatchEvent(new Event("storage")); // Add this line
+=======
+        { name, email, password, phone }
+      );
+
+      setMessage(res.data.message); // show success message
+
+      if (res.status === 201) {
+        localStorage.setItem("token", res.data.token);
+        window.dispatchEvent(new Event("authChange"));
+        window.dispatchEvent(new Event("storage"));
+>>>>>>> local-changes
         navigate("/");
       }
 
@@ -43,8 +59,19 @@ const SignUpScreen = () => {
       setPassword("");
       setPhone("");
     } catch (err) {
+<<<<<<< HEAD
       console.error(err);
       setMessage("Error saving user");
+=======
+      console.error("Signup error:", err.response?.data?.error || err.message);
+
+      // Show backend error if exists, otherwise generic
+      if (err.response && err.response.data && err.response.data.error) {
+        setMessage("User with this email already exists");
+      } else {
+        setMessage("Error saving user");
+      }
+>>>>>>> local-changes
     }
   };
 
@@ -85,6 +112,7 @@ const SignUpScreen = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="w-full rounded-lg px-4 py-2 shadow-[0_5px_15px_rgb(238,238,238,0.4)] bg-transparent"
             />
+<<<<<<< HEAD
             <input
               type="password"
               placeholder="Enter your password"
@@ -93,6 +121,31 @@ const SignUpScreen = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full rounded-lg px-4 py-2 shadow-[0_5px_15px_rgb(238,238,238,0.4)] bg-transparent"
             />
+=======
+            <div className="relative mt-4">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter your password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full rounded-lg px-4 py-2 shadow-[0_5px_15px_rgb(238,238,238,0.4)] bg-transparent"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              >
+                {showPassword ? (
+                  // Correct Eye Slash icon
+                  <img src="/eyeoff.svg" alt="" className="size-6 invert" />
+                ) : (
+                  // Correct Eye icon
+                  <img src="/eye.svg" alt="" className="size-6 invert" />
+                )}
+              </button>
+            </div>
+>>>>>>> local-changes
             <input
               type="text"
               placeholder="Enter your phone number"

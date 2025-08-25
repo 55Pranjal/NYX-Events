@@ -8,10 +8,17 @@ import userRoutes from "./routes/UserRoutes.js";
 import EventRoutes from "./routes/EventRoutes.js";
 import RegisterRoute from "./routes/RegisterRoute.js";
 
+<<<<<<< HEAD
+=======
+mongoose.set("strictQuery", true); // optional, but good practice
+mongoose.set("debug", false); // disables extra Mongo logging
+
+>>>>>>> local-changes
 dotenv.config();
 console.log("Environment check:");
 console.log("BACKEND_URL:", process.env.BACKEND_URL);
 console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
+<<<<<<< HEAD
 console.log(
   "GITHUB_CLIENT_ID:",
   process.env.GITHUB_CLIENT_ID ? "Set" : "Missing"
@@ -22,6 +29,11 @@ console.log(
   "Redirect URI would be:",
   `${process.env.BACKEND_URL}/auth/github/callback`
 );
+=======
+
+console.log("MONGO_URI:", process.env.MONGO_URI ? "Set" : "Missing");
+console.log("Full BACKEND_URL:", process.env.BACKEND_URL);
+>>>>>>> local-changes
 
 const app = express();
 
@@ -37,6 +49,7 @@ app.use(
 
 const JWT_SECRET = process.env.JWT_SECRET; // use env in production
 
+<<<<<<< HEAD
 // Step 1: Redirect user to GitHub for consent
 app.get("/auth/github", (req, res) => {
   const redirect_uri = `${process.env.BACKEND_URL}/auth/github/callback`;
@@ -89,17 +102,36 @@ app.get("/auth/github/callback", async (req, res) => {
 
 // Protected route example
 app.get("/api/protected", (req, res) => {
+=======
+// Middleware to verify JWT
+const verifyToken = (req, res, next) => {
+>>>>>>> local-changes
   const authHeader = req.headers.authorization;
   if (!authHeader) return res.status(401).json({ msg: "No token" });
 
   const token = authHeader.split(" ")[1];
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
+<<<<<<< HEAD
     res.json({ msg: "Protected data", user: decoded });
   } catch {
     res.status(401).json({ msg: "Invalid/Expired token" });
   }
 });
+=======
+    req.user = decoded; // attach user info to request
+    next();
+  } catch {
+    res.status(401).json({ msg: "Invalid/Expired token" });
+  }
+};
+
+// Protected route example
+app.get("/api/protected", verifyToken, (req, res) => {
+  res.json({ msg: "Protected data", user: req.user });
+});
+
+>>>>>>> local-changes
 console.log("About to import routes...");
 app.use("/api/users", userRoutes);
 app.use("/api/events", EventRoutes);

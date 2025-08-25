@@ -30,6 +30,10 @@ import SummerMusicFestival from "./Components/SummerMusicFestival";
 import TechConference from "./Components/TechConference";
 import NewYearParty from "./Components/NewYearParty";
 import Register from "./Components/Register";
+<<<<<<< HEAD
+=======
+import Dashboard from "./Components/Dashboard";
+>>>>>>> local-changes
 
 function App() {
   const navigate = useNavigate();
@@ -84,6 +88,10 @@ function App() {
         <Route path="/Conferences" element={<Conferences />} />
         <Route path="/Parties" element={<Parties />} />
         <Route path="/Register" element={<Register />} />
+<<<<<<< HEAD
+=======
+        <Route path="/Dashboard" element={<Dashboard />} />
+>>>>>>> local-changes
       </Routes>
     </>
   );
